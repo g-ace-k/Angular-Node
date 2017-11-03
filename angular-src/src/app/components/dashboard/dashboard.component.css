@@ -1,0 +1,31 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    color: black;
+}
+
+.tableButton {
+    border: 0px none;
+    background-color:transparent;
+}
+
+.tableElements {
+    font-size:18px;
+    color:#e95420;
+}
+.flash {
+    position:fixed; 
+    bottom: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
+}
+

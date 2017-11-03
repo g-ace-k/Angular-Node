@@ -1,0 +1,122 @@
+
+<div class="jumbotron specialJumbotron">
+  <div class="container">
+    <div *ngIf="userGreeting" class="col-lg-6">
+      <h2>Welcome {{userGreeting}}</h2>
+      <p> You can add a new user to the database using the form to the right </p>
+      <p> You can then log into the user to go to the dashboard page</p>
+      <p> View all source code here <a href="https://github.com/g-ace-k"  class="btn btn-info">Github Repository</a></p>
+    </div>
+    <div class="col-lg-6">
+      <div *ngIf="!authService.loggedIn()">
+      <form (submit)="onRegisterSubmit()" class="form-horizontal">
+        <fieldset>
+          <legend>Create a User</legend>
+          <div class="form-group">
+            <label for="inputName" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+              <input type="text" [(ngModel)]="name" name="name" class="form-control" id="inputName" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-10">
+              <input type="text" [(ngModel)]="username" name="username" class="form-control" id="inputUsername" placeholder="Username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input type="password" [(ngModel)]="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-2 col-lg-offset-2">
+              <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+            <div class="col-lg-6 col-lg-offset-2" style="height:62px">
+              <flash-messages></flash-messages>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      </div><div *ngIf="authService.loggedIn()">
+      <form (submit)="onEditSubmit()" class="form-horizontal">
+        <fieldset>
+          <legend>Edit User</legend>
+          <div class="form-group">
+            <label for="inputName" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+              <input type="text" [(ngModel)]="newName" name="name" class="form-control" id="inputName" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input type="password" [(ngModel)]="newPassword" name="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-2 col-lg-offset-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+            <div class="col-lg-6 col-lg-offset-2" style="height:62px">
+              <flash-messages></flash-messages>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <h1>A quick summary of this web app.</h1>
+    <p class="text-left">This web app was created using a MEAN stack and ultimately will serve as a template for a future webapp I plan on making.
+      The goal of this web app was to become familiar with using both frontend and backend frameworks as well as becoming
+      familiar with a NoSQL database as I had experience working with MySQL databases already. The creating users and login
+      page doesn't really provide any additional functionality besides allowing a look at all users in the database as a
+      way to check the database is working as expected. I wouldn't advise on putting in real passwords but they are still
+      stored using bcrypt.</p>
+  </div>
+  <br>
+  <br>
+  <div class="row text-center" >
+  <h1>What you will find in this web app.</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Backend Functionality</h2>
+      <p>Handle all database requests through REST apis on the backend seperate from the client.</p>
+    </div>
+    <div class="col-lg-4">
+      <h2>MongoDB</h2>
+      <p>Uses a NoSQL database hosted at <a href="https://mlab.com/">mLab.</a> for ease of use and scalability.</p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Angular</h2>
+      <p><a href="https://angular.io/">Angular</a> framework and angular-cli for generating components, services, etc and local dev server for easy testing.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>OAuth and Passport</h2>
+      <p>This might only be a test web app, but hey why not have secure authorization and authentication.</p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Bootstrap</h2>
+      <p>For speedy development, responsiveness, and consistency for an easy to view web app that works for all screen sizes.</p>
+    </div>
+    <div class="col-lg-4">
+      <h2>My other Projects</h2>
+      <p>Want to know what else I've worked on? View a brief summary of my projects as well as links to their github page and where to view them in action.</p>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+</div>

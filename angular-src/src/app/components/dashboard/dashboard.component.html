@@ -1,0 +1,32 @@
+<div *ngIf="userGreeting" class="container">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4 text-center">
+      <h1> Welcome {{userGreeting}}</h1>
+      <p>Click this button to see all users in the database</p>
+      <button (click)="createTable()" type="button" class="btn btn-primary">Find Users</button>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <table *ngIf="usersArray!=null">
+        <tr>
+          <th class="tableElements">Name</th>
+          <th class="tableElements">Username</th>
+        </tr>
+        <tr *ngFor="let user of usersArray; let x = index;">
+          <th>{{user.name}}</th>
+          <th>{{user.username}}</th>
+          <th class="tableButton"><button (click)="deleteUser(x)" type="button" class="btn btn-danger" style="margin-left:20px;">Delete</button></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <div class="col-lg-1 col-lg-offset-10 flash">
+    <flash-messages></flash-messages>
+  </div>
+</div>

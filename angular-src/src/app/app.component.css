@@ -1,0 +1,9 @@
+.flashMessage {
+    color: red;
+}
+.main-container {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 100%;
+  width: 100%;
+}
