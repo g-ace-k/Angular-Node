@@ -1,39 +1,30 @@
-<nav class="navbar navbar-default navbar-static-top" id="navBarTop">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
     <div class="container">
-        <div class="navbar-header">
-                <button type="button" 
-                        class="navbar-toggle collapsed"
-                        (click)="toggleState()">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">Project Manager</a>
-        </div>
-         <div class="collapse navbar-collapse navbar-center"
-              [ngClass]="{ 'in': isIn }">
-            <ul class="nav navbar-nav">
-                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/']">Home</a></li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown">Other Projects<span class="caret"></span></a>
-                <div class="dropdown-menu">
-                    <li><a  [routerLink]="['/blackjack']">Blackjack Android App</a></li>
-                    <li><a  [routerLink]="['/classWebsite']">Class Website</a></li>
-                </div>
+        <a class="navbar-brand" href="#">Project Manager</a>
+        <button type="button" class="navbar-toggler navbar-toggler-right" (click)="isExpanded = !isExpanded" [attr.aria-expanded]="!isExpanded" aria-controls="navbarContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+         <div class="collapse navbar-collapse" id="navbarContent" [ngbCollapse]="!isExpanded">
+            <ul class=" nav navbar-nav mr-auto">
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" [routerLink]="['/']">Home</a></li>
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Other Projects</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
+                        <li><a class="dropdown-item" [routerLink]="['/blackjack']">Blackjack Android App</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/classWebsite']">Class Website</a></li>
+                    </div>
                 </li>
-                
-                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a  [routerLink]="['/about']">About</a></li>
-                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a  [routerLink]="['/contact']">Contact</a></li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" [routerLink]="['/about']">About</a></li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" [routerLink]="['/contact']">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                  <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a  [routerLink]="['/dashboard']">Dashboard</a></li>
-                  <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a  [routerLink]="['/login']">Login</a></li>
-                  <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a (click)="onLogoutClick()" href="#">Logout</a></li>
+                <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a></li>
+                <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
+                <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a></li>
             </ul>
         </div>
-        
     </div>
-    
 </nav>
 
 

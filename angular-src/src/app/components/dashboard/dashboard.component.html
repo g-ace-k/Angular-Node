@@ -1,17 +1,14 @@
 <div *ngIf="userGreeting" class="container">
-  <div class="row">
-    <div class="col-lg-4 col-lg-offset-4 text-center">
+    <div class=" text-center" style="padding-top:60px">
       <h1> Welcome {{userGreeting}}</h1>
       <p>Click this button to see all users in the database</p>
       <button (click)="createTable()" type="button" class="btn btn-primary">Find Users</button>
     </div>
-  </div>
 
   <br>
   <br>
-
-  <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
+  
+    <div class="col-lg-6 col-lg-offset-3" style="margin:auto;">
       <table *ngIf="usersArray!=null">
         <tr>
           <th class="tableElements">Name</th>
@@ -24,9 +21,8 @@
         </tr>
       </table>
     </div>
-  </div>
   <br>
-  <div class="col-lg-1 col-lg-offset-10 flash">
+  <div class="col-lg-2 col-lg-offset-10 flash">
     <flash-messages></flash-messages>
   </div>
 </div>

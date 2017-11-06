@@ -1,77 +1,93 @@
 
-<div class="jumbotron specialJumbotron">
+<div class="jumbotron">
   <div class="container">
-    <div *ngIf="userGreeting" class="col-lg-6">
+    <div class="row">
+    <div class="col-lg-6">
+      <br>
       <h2>Welcome {{userGreeting}}</h2>
       <p> You can add a new user to the database using the form to the right </p>
       <p> You can then log into the user to go to the dashboard page</p>
       <p> View all source code here <a href="https://github.com/g-ace-k"  class="btn btn-info">Github Repository</a></p>
     </div>
     <div class="col-lg-6">
+      <!--    CREATE A USER FORM WHEN NOT LOGGED IN START            -->
       <div *ngIf="!authService.loggedIn()">
       <form (submit)="onRegisterSubmit()" class="form-horizontal">
         <fieldset>
           <legend>Create a User</legend>
           <div class="form-group">
+            <div class="row">
             <label for="inputName" class="col-lg-2 control-label">Name</label>
             <div class="col-lg-10">
               <input type="text" [(ngModel)]="name" name="name" class="form-control" id="inputName" placeholder="Name">
             </div>
+            </div>
           </div>
           <div class="form-group">
+            <div class="row">
             <label for="inputUsername" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
               <input type="text" [(ngModel)]="username" name="username" class="form-control" id="inputUsername" placeholder="Username">
             </div>
+            </div>
           </div>
           <div class="form-group">
+            <div class="row">
             <label for="inputPassword" class="col-lg-2 control-label">Password</label>
             <div class="col-lg-10">
               <input type="password" [(ngModel)]="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
             </div>
+            </div>
           </div>
           <div class="form-group">
+            <div class="row">
             <div class="col-lg-2 col-lg-offset-2">
               <button type="submit" class="btn btn-primary">Create</button>
             </div>
-            <div class="col-lg-6 col-lg-offset-2" style="height:62px">
-              <flash-messages></flash-messages>
-            </div>
-          </div>
-        </fieldset>
-      </form>
-      </div><div *ngIf="authService.loggedIn()">
-      <form (submit)="onEditSubmit()" class="form-horizontal">
-        <fieldset>
-          <legend>Edit User</legend>
-          <div class="form-group">
-            <label for="inputName" class="col-lg-2 control-label">Name</label>
-            <div class="col-lg-10">
-              <input type="text" [(ngModel)]="newName" name="name" class="form-control" id="inputName" placeholder="Name">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-              <input type="password" [(ngModel)]="newPassword" name="password" class="form-control" id="inputPassword" placeholder="Password">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-2 col-lg-offset-2">
-              <button type="submit" class="btn btn-primary">Save Changes</button>
-            </div>
-            <div class="col-lg-6 col-lg-offset-2" style="height:62px">
-              <flash-messages></flash-messages>
             </div>
           </div>
         </fieldset>
       </form>
       </div>
+      <!--    CREATE A USER FORM WHEN NOT LOGGED IN END            -->
+      <!--    EDIT USER FORM WHEN LOGGED IN START                  -->
+      <div *ngIf="authService.loggedIn()">
+      <form (submit)="onEditSubmit()" class="form-horizontal">
+        <fieldset>
+          <legend>Edit User</legend>
+          <div class="form-group">
+            <div class="row">
+            <label for="inputName" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+              <input type="text" [(ngModel)]="newName" name="name" class="form-control" id="inputName" placeholder="Name">
+            </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input type="password" [(ngModel)]="newPassword" name="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+            <div class="col-lg-2 col-lg-offset-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      </div>
+      <!--    EDIT USER FORM WHEN LOGGED IN END                    -->
+    </div>
     </div>
   </div>
 </div>
 <div class="container">
-  <div class="row text-center">
+  <div class="text-center">
     <h1>A quick summary of this web app.</h1>
     <p class="text-left">This web app was created using a MEAN stack and ultimately will serve as a template for a future webapp I plan on making.
       The goal of this web app was to become familiar with using both frontend and backend frameworks as well as becoming
@@ -82,10 +98,10 @@
   </div>
   <br>
   <br>
-  <div class="row text-center" >
+  <div class="text-center" >
   <h1>What you will find in this web app.</h1>
   </div>
-
+  <br>
   <div class="row">
     <div class="col-lg-4">
       <h2>Backend Functionality</h2>
@@ -118,5 +134,7 @@
   <br>
   <br>
 
-
+<div class="col-lg-2 col-lg-offset-10 flash">
+    <flash-messages></flash-messages>
+  </div>
 </div>

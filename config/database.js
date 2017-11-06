@@ -1,4 +1,4 @@
 module.exports = {
-    database: 'mongodb://admin:admin@ds143201.mlab.com:43201/mywebsite_michaelgacek',
-    secret: 'secretHere'
+    database: 'DatabaseLinkHere',//connection point to database
+    secret: 'secretHere' //Secret used for JWT authentication
 }

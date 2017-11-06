@@ -11,21 +11,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  isIn = false;   // store state
-
   constructor(private authService: AuthService,private validateService: ValidateService,private flashMessage: FlashMessagesService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  toggleState() { // click handler
-      let bool = this.isIn;
-      this.isIn = bool === false ? true : false; 
-  }
-
   onLogoutClick() {
     this.authService.logout();
-    console.log("HERE");
     this.flashMessage.show("You are logged out",{cssClass: "alert-success",timeout: 3000});
     this.router.navigate(['/login']);
     return false;

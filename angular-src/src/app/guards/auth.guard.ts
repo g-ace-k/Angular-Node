@@ -10,6 +10,7 @@ export class AuthGuard implements CanActivate {
 
     }
 
+    //Used in the app.module.ts under Routes to ensure that a user needs to be logged in to access page
     canActivate() {
         if(this.authService.loggedIn()) {
             return true;

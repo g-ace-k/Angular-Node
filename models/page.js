@@ -18,7 +18,7 @@ module.exports.getPageByName = function(name,callback) {
 };
 
 module.exports.getAllPages = function(callback) {
-    Page.findById("5938234b617c482334ba088b",callback);
+    Page.find({},callback);
 };
 
 module.exports.addPage = function(newPage, callback) {
