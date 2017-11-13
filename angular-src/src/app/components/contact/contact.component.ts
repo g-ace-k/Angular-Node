@@ -13,6 +13,7 @@ export class ContactComponent implements OnInit {
 
   email: String;
   text: String;
+  status: String;
 
   //for testing
   emailURL: String;
@@ -20,6 +21,7 @@ export class ContactComponent implements OnInit {
   constructor(private authService: AuthService,private validateService: ValidateService, private flashMessage: FlashMessagesService, private router: Router) { }
 
   ngOnInit() {
+    this.status="Send";
   }
 
   onContactSubmit() {
@@ -38,14 +40,16 @@ export class ContactComponent implements OnInit {
       this.flashMessage.show("Please fill in both fields", { cssClass: 'alert-danger', timeout: 6000 });
       return false;
     }
-
+    this.status="Sending";
     this.authService.sendEmail(contact).subscribe(data => {
       if (data.success) {
         this.flashMessage.show(data.msg, { cssClass: 'alert-success', timeout: 6000 });
         this.emailURL=data.url;
+        this.status="Send";
       }
       else {
         this.flashMessage.show(data.msg, { cssClass: 'alert-danger', timeout: 6000 });
+        this.status="Send";
       }
     });
 
