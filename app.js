@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const config = require('./config/database')
+const config = require('./config/database');
 
 mongoose.connect(config.database);
 
@@ -15,7 +15,8 @@ mongoose.connection.on('connected', () => {
 const app = express();
 
 const users = require("./routes/users");
-const pages = require("./routes/pages")
+const pages = require("./routes/pages");
+const mailer = require("./routes/mailer");
 
 const port = process.env.PORT || 5000;
 
@@ -32,6 +33,7 @@ require('./config/passport')(passport);
 
 app.use('/users',users);
 app.use('/pages',pages);
+app.use('/mailer',mailer);
 
 app.get('/',(req,res) => {
     res.send("Invalid endpoint");

@@ -53,6 +53,12 @@ export class AuthService {
     return this.http.post('users/updateUser',user,{headers:headers}).map(res => res.json());
   }
 
+  sendEmail(contact) {
+    let headers= new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('mailer/sendemail',contact,{headers:headers}).map(res => res.json());
+  }
+
   //save in local storage when logged in
   storeUserData(token,user) {
     localStorage.setItem('token', token);

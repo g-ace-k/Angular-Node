@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
-
+const nodemailer = require('nodemailer');
 const User = require('../models/user');
 
 router.post('/register', (req, res, next) => {
@@ -39,6 +39,7 @@ router.get('/login', (req, res, next) => {
 });
 
 router.get('/allUsers', passport.authenticate('jwt', { session: false }),(req,res,next) => {
+    console.log("All users");
     User.getAllUsers((err,users) => {
         if(err) throw err;
 
@@ -119,6 +120,11 @@ router.post('/authenticate', (req, res, next) => {
             }
         });
     });
+});
+
+router.get('/test',(req,res,next) => {
+    console.log("test");
+    res.send("This is a test");
 });
 
 module.exports = router;

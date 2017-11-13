@@ -1,3 +1,36 @@
-<div class="container" style="margin-top:60px;">
-  <p> This would be the about page. This is only a template web app so as of now, this page is empty</p>
+<div class="container" style="margin-top:80px;">
+  <h1 class="text-center">Before you start</h1><br>
+  <p>Check out all the source code over at my github <a href="https://github.com/g-ace-k/Angular-Node">here</a>.</p>
+  <br>
+  <p>Here you can check out all the code such as how the backend and frontend are setup, how the contact form mailer works, 
+    how it validates when you are logged in and authorizes certain features and much more. You can even clone the github repository 
+    to your machine and run it in your local network using this command
+  </p>
+  <pre><code>$ git clone https://github.com/g-ace-k/Angular-Node</code></pre>
+  <br>
+  <h1 class="text-center">Setting up the backend</h1><br>
+  <h2>Install dependancies</h2>
+  <p>In the main folder, install dependancies using</p> 
+  <pre><code>$ npm install</code></pre>
+  <h2>Configure config.database file</h2>
+  <p>In the config/database folder, add a database that it can connect to. You can make a free database over at <a href="mlab.com">mLab</a>.</p>
+  <pre><code>module.exports = {{'{'}}
+    database: 'DatabaseLinkHere',//connection point to database
+    secret: 'secretHere' //Secret used for JWT authentication
+{{'}'}}</code></pre>
+  <h2>Run the backend server</h2>
+  <p>In the main folder, use nodemon to start a backend server on your machine on port 5000</p>
+  <pre><code>$ nodemon</code></pre>
+  <h1 class="text-center">Setting up the frontend</h1><br>
+  <h2>Install dependancies</h2>
+  <p>In the angular-src folder, install dependancies using</p>
+  <pre><code>$ npm install</code></pre>
+  <h2>Configure http requests</h2>
+  <p>In the angular-src/src/services/auth.service.ts file, change all http requests to point to</p>
+  <pre><code>return this.http.post('http://localhost:5000/users/...</code></pre>
+  <h2>Run the app</h2>
+  <p>Using angular-cli run the app using ng serve command</p>
+  <pre><code>$ ng serve</code></pre>
+  <h1 class="text-center">After its all done</h1><br>
+  <p>Visit <a href="http://localhost:4200/">localhost:4200</a> to view the working app and database.</p>
 </div>

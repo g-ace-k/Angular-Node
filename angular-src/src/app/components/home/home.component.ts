@@ -34,6 +34,9 @@ export class HomeComponent implements OnInit {
 
 
   onRegisterSubmit() {
+
+
+
     //create an object from create user fields
     const newUser = {
       name: this.name,
