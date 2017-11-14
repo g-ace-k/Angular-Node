@@ -9,8 +9,7 @@ It also uses passport for authorization on certain http requests to keep them se
 
 This main focus was on functionality so styling was not a high priority.
 
-To check it out,  <a href="https://cryptic-hamlet-49526.herokuapp.com/">click here</a> or go to https://cryptic-hamlet-49526.herokuapp.com/
-
+To check it out,  <a href="https://michaelgacek.herokuapp.com/">click here</a>
 To view on a local network, requires npm cli, angular cli, and nodemon.
 
 # Install dependancies
